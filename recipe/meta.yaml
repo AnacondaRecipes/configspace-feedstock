@@ -12,7 +12,6 @@ source:
 
 build:
   number: 0
-  skip: true  # [py2k]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -22,6 +21,8 @@ requirements:
     - cython
     - numpy
     - pip
+    - setuptools
+    - wheel
     - python
   run:
     - cython
