@@ -53,3 +53,5 @@ about:
 extra:
   recipe-maintainers:
     - hadim
+  skip-lints:
+    python_build_tool_in_run
