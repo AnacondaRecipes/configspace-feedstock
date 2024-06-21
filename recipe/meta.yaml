@@ -1,5 +1,5 @@
 {% set name = "ConfigSpace" %}
-{% set version = "0.4.19" %}
+{% set version = "0.4.21" %}
 
 
 package:
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ConfigSpace-{{ version }}.tar.gz
-  sha256: f7d35c0d7155e1e757c8a3797750098cc12ab77e447c38c8da07e74b6adb11f3
+  sha256: 09c5ee343f2850865609cc91f2ab27da0a6182f7f196354f9550f6da578ea827
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv --no-deps
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
@@ -29,6 +29,7 @@ requirements:
     - pyparsing
     - python
     - {{ pin_compatible('numpy') }}
+    - scipy
 
 test:
   imports:
@@ -44,10 +45,14 @@ about:
   summary: Creation and manipulation of parameter configuration spaces for automated algorithm configuration and hyperparameter tuning.
   description: A simple python module to manage configuration spaces for algorithm configuration and hyperparameter optimization tasks.
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE
   dev_url: https://github.com/automl/ConfigSpace
-  doc_url: https://automl.github.io/ConfigSpace/master/
+  doc_url: https://automl.github.io/ConfigSpace/
 
 extra:
   recipe-maintainers:
     - hadim
+  skip-lints:
+    - python_build_tool_in_run
+    - cython_must_be_in_host
