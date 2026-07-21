@@ -1,5 +1,5 @@
 {% set name = "ConfigSpace" %}
-{% set version = "1.2.1" %}
+{% set version = "1.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -9,11 +9,12 @@ source:
   # Use upstream archive tarball for tests -- pypi does not include
   # the subdirs of test/
   url: https://github.com/automl/ConfigSpace/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 7b2d129ce6d839d2bc75e77f6656915a633931a98dfb3c0117f4145ae5dda422
+  sha256: aaaa15b3862d554d2164964248a2d17582faa23867c343f206fa21ad1c376a9b
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  skip: true  # [py<39]
 
 requirements:
   host:
