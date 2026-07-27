@@ -1,15 +1,17 @@
-{% set name = "ConfigSpace" %}
+{% set name = "configspace" %}
 {% set version = "1.2.2" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  # Use upstream archive tarball for tests -- pypi does not include
-  # the subdirs of test/
+  # Use upstream archive tarball because the PyPI sdist omits test subdirectories.
   url: https://github.com/automl/ConfigSpace/archive/refs/tags/v{{ version }}.tar.gz
   sha256: aaaa15b3862d554d2164964248a2d17582faa23867c343f206fa21ad1c376a9b
+  patches:
+    # Fix incorrect package metadata in the upstream v1.2.2 tag.
+    - fix_version.patch
 
 build:
   number: 0
@@ -57,5 +59,3 @@ about:
 extra:
   recipe-maintainers:
     - hadim
-  skip-lints:
-    - python_build_tool_in_run

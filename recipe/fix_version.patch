@@ -1,0 +1,12 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index a2f9e80..5479a99 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,6 +1,6 @@
+ [project]
+ name = "ConfigSpace"
+-version = "1.2.1"
++version = "1.2.2"
+ description = """\
+     Creation and manipulation of parameter configuration spaces for \
+     automated algorithm configuration and hyperparameter tuning. \
